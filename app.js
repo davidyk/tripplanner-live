@@ -1,16 +1,16 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var swig = require('swig');
+var nunjucks = require('nunjucks');
 
 var db = require('./models');
 
 var app = express();
 
 // swig rendering boilerplate
-app.set('views', __dirname + '/views');
+nunjucks.configure('views', { noCache: true });
 app.set('view engine', 'html');
-app.engine('html', swig.renderFile);
+app.engine('html', nunjucks.render);
 
 // logging and body-parsing
 app.use(morgan('dev'));
@@ -55,3 +55,24 @@ app.listen(port, function () {
     console.error('Trouble right here in River City', err, err.stack);
   });
 });
+
+
+/*
+
+Plan
+
+Current Day
+-Hit plus you can add a hotel, restaurant or activity to iternerary
+  -Adds items to array in browser memory only
+
+Set/Review Itinerary
+(Make all changes by jQuery/javascript)
+-Can remove hotel, rest, activity
+-Can add/remove days
+-Each hotel/rest/activity has a map icon
+-Automatically shows existing itinerary on itinerary AND map
+
+   var hotels = {{ hotels | dump | safe }};
+  var restaurants = {{ restaurants | dump | safe }};
+  var activities = {{ activities | dump | safe }};
+*/
