@@ -38,7 +38,7 @@
                 <option>{{ activity.name }}</option>
               {% endfor %}
             </select>
-            <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
+            <button data-action="add" class="btn btn-primary btn-circle pull-right activityaddbtn">+</button>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <div class="day-buttons">
-            <button class="btn btn-circle day-btn day-number">1</button>
+            <button class="btn btn-circle day-btn">1</button>
             <button class="btn btn-circle day-btn" id="day-add">+</button>
           </div>
         </div>
@@ -62,7 +62,7 @@
             <h4>My Hotel</h4>
             <ul class="list-group">
               <div class="itinerary-item hotel-list">
-                <span class="title">Andaz Wall Street</span>
+                <span class="title" data-type="hotel">Andaz Wall Street</span>
                 <button class="btn btn-xs btn-danger remove btn-circle">x</button>
               </div>
             </ul>
@@ -70,8 +70,8 @@
           <div>
             <h4>My Restaurants</h4>
             <ul class="list-group">
-              <div class="itinerary-item">
-                <span class="title">Bouley</span>
+              <div class="itinerary-item restaurant-list">
+                <span class="title" data-type="restaurant">Bouley</span>
                 <button class="btn btn-xs btn-danger remove btn-circle">x</button>
               </div>
             </ul>
@@ -79,8 +79,8 @@
           <div>
             <h4>My Activities</h4>
             <ul class="list-group">
-              <div class="itinerary-item">
-                <span class="title">Mahayana Buddhist Temple Association</span>
+              <div class="itinerary-item activity-list">
+                <span class="title" data-type="activity">Mahayana Buddhist Temple Association</span>
                 <button class="btn btn-xs btn-danger remove btn-circle">x</button>
               </div>
             </ul>
