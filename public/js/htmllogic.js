@@ -26,18 +26,34 @@ $(document).ready(function () {
 //Event handling
 
   $(".hoteladdbtn").on("click", function (){
+    // debugger;
     var selectedHotel = $("#hotel-choices option:selected").text();
-    console.log(selectedHotel);
 
     itinerary[currentDay].hotel = selectedHotel;
 
+    $(".hotel-list").empty();
 
-    //   .hotel.push(selectedHotel);
-    console.log("Hotel in array: ", itinerary[currentDay].hotel);
+    var hotelHtml = "<span class='title'>" + itinerary[currentDay].hotel + "</span><button class='btn btn-xs btn-danger remove btn-circle'>x</button>";
 
-  // $(".hotel")
-
+    $(".hotel-list").append(hotelHtml);
 
   });
+
+  $("#day-add").on("click", function (){
+    itinerary.push(emptyDay);
+
+    var displayDay = itinerary.length;
+    var newDay = "<button class='btn btn-circle day-btn day-number'>" + displayDay + "</button>";
+    console.log("newDay", newDay);
+    $(".day-buttons").append(newDay);
+
+    currentDay = itinerary.length;
+
+
+
+   });
+
+
+
 
 });
